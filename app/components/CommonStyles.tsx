@@ -33,6 +33,11 @@ export const CommonStyles = StyleSheet.create({
     fontSize: 36,
     height: 150,
   },
+  taskTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
   textAlignCenter: {
     textAlign: 'center',
   },

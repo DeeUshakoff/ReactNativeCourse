@@ -19,6 +19,10 @@ const DATA = [
     title: 'Homework 4 - 24.09.2024',
     page: 'Homework4',
   },
+  {
+    title: 'Homework 5 - 01.10.2024',
+    page: 'Homework5',
+  },
 ];
 
 type ItemProps = {title: string; page: string; navigation: any};
@@ -30,6 +34,7 @@ const Item = (props: ItemProps) => (
       title={props.title}
       onPress={() => props.navigation.navigate(props.page)}
     />
+    <Separator />
   </View>
 );
 
