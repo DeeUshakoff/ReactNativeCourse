@@ -47,4 +47,10 @@ export const CommonStyles = StyleSheet.create({
   marginTop8: {
     marginTop: 8,
   },
+  input: {
+    minHeight: 50,
+    borderRadius: 25,
+    borderWidth: 1,
+    padding: 8,
+  },
 });

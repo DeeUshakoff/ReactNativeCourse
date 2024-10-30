@@ -1,4 +1,4 @@
-import {SafeAreaView, StatusBar, StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView, StatusBar, StyleSheet, Text} from 'react-native';
 import Clipboard from '@react-native-clipboard/clipboard';
 import React from 'react';
 import {CommonStyles} from '@components/CommonStyles.tsx';
