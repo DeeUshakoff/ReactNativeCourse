@@ -1,6 +1,6 @@
 import {makeAutoObservable} from 'mobx';
-import TaskService from '@homeworks/homework-9/TaskService.ts';
-import {TaskModel} from '@homeworks/homework-9/TaskModel.ts';
+import TaskService from './TaskService.ts';
+import {TaskModel} from './TaskModel.ts';
 
 export class TaskStore {
   taskService;

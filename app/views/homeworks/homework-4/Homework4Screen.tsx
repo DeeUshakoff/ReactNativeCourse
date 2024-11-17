@@ -6,26 +6,26 @@ import {
   ViewExample1,
   ViewExample2,
   ViewExample3,
-} from '@homeworks/homework-4/ViewExamples.tsx';
+} from '@components/homework-4/ViewExamples.tsx';
 import {CommonStyles} from '@components/CommonStyles.tsx';
 import {Separator} from '@components/Separator.tsx';
 import {
   TextExample1,
   TextExample2,
   TextExample3,
-} from '@homeworks/homework-4/TextExamples.tsx';
+} from '@components/homework-4/TextExamples.tsx';
 import {
   ImageExample1,
   ImageExample2,
   ImageExample3,
-} from '@homeworks/homework-4/ImageExamples.tsx';
+} from '@components/homework-4/ImageExamples.tsx';
 import {
   ScrollViewExample1,
   ScrollViewExample2,
   ScrollViewExample3,
-} from './ScrollViewExamples.tsx';
+} from '@components/homework-4/ScrollViewExamples.tsx';
 
-export const Homework4 = () => {
+export const Homework4Screen = () => {
   return (
     <SafeAreaView>
       <ScrollView nestedScrollEnabled={true} style={[CommonStyles.padding8]}>

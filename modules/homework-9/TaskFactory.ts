@@ -1,4 +1,4 @@
-import {TaskModel} from '@homeworks/homework-9/TaskModel.ts';
+import {TaskModel} from './TaskModel.ts';
 import {v4 as uuidv4} from 'uuid';
 
 export class TaskFactory {

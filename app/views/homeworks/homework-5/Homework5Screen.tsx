@@ -5,18 +5,18 @@ import React from 'react';
 
 import {CommonStyles} from '@components/CommonStyles.tsx';
 import {Separator} from '@components/Separator.tsx';
-import {ButtonText} from '@homeworks/homework-5/ButtonText.tsx';
+import {ButtonText} from '@components/homework-5/ButtonText.tsx';
 import {
   TextInputExample1,
   TextInputExample2,
   TextInputExample3,
-} from '@homeworks/homework-5/TextInput.tsx';
+} from '@components/homework-5/TextInput.tsx';
 import {
   CustomComponents,
   CustomComponents2,
-} from '@homeworks/homework-5/CustomComponents.tsx';
+} from '@components/homework-5/CustomComponents.tsx';
 
-export const Homework5 = () => {
+export const Homework5Screen = () => {
   return (
     <SafeAreaView>
       <ScrollView nestedScrollEnabled={true} style={[CommonStyles.padding8]}>

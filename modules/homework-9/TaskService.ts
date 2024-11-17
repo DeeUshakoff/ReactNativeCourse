@@ -1,5 +1,5 @@
-import TaskRepository from '@homeworks/homework-9/TaskRepository.ts';
-import {TaskModel} from '@homeworks/homework-9/TaskModel.ts';
+import TaskRepository from './TaskRepository.ts';
+import {TaskModel} from './TaskModel.ts';
 
 export default class TaskService {
   taskRepository;

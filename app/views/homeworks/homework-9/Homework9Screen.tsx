@@ -12,14 +12,14 @@ import React, {useEffect} from 'react';
 import {Icon} from 'react-native-elements';
 import {CommonStyles} from '@components/CommonStyles.tsx';
 import {Separator} from '@components/Separator.tsx';
-import {useRootStore} from '@homeworks/homework-9/useRootStore.ts';
+import {useRootStore} from '../../../../hooks/useRootStore.ts';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import Button from '@components/Button.tsx';
-import {TaskModel} from '@homeworks/homework-9/TaskModel.ts';
+import {TaskModel} from '../../../../modules/homework-9/TaskModel.ts';
 import FlatList = Animated.FlatList;
 import {observer} from 'mobx-react';
 
-export const Homework9 = observer(
+export const Homework9Screen = observer(
   ({navigation}: NativeStackScreenProps<any>) => {
     const {taskStore} = useRootStore();
 

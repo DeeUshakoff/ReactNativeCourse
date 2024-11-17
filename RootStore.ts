@@ -1,4 +1,4 @@
-import {TaskStore} from '@homeworks/homework-9/TaskStore.ts';
+import {TaskStore} from './modules/homework-9/TaskStore.ts';
 import React from 'react';
 
 class RootStore {
