@@ -27,6 +27,10 @@ const DATA = [
     title: 'Homework 9 - 15.10.2024',
     page: 'Homework9',
   },
+  {
+    title: 'Homework 12 - 15.10.2024',
+    page: 'Homework12',
+  },
 ];
 
 type ItemProps = {title: string; page: string; navigation: any};

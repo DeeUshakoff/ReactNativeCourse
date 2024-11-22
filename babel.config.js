@@ -8,7 +8,21 @@ module.exports = {
         alias: {
           '@components': './app/components',
           '@homeworks': './app/views/homeworks',
+          '@modules': './app/modules',
         },
+      },
+    ],
+    [
+      'module:react-native-dotenv',
+      {
+        envName: 'APP_ENV',
+        moduleName: '@env',
+        path: '.env',
+        blocklist: null,
+        allowlist: null,
+        safe: false,
+        allowUndefined: true,
+        verbose: false,
       },
     ],
   ],
