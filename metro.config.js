@@ -11,6 +11,7 @@ const config = {
     alias: {
       '@components': './app/components',
       '@homeworks': './app/views/homeworks',
+      '@modules': './app/modules',
     },
   },
 };
