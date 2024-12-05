@@ -6,5 +6,5 @@ export default class ItemModel {
   pressure: string = '';
   weather: string = '';
   windSpeed: string = '';
-  date: Date = new Date();
+  date: string = '';
 }

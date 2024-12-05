@@ -1,11 +1,13 @@
 import ItemRepository from './ItemRepository.ts';
 import ItemModel from './ItemModel.ts';
+import LocalRepository from '../homework-local-storage/LocalRepository.ts';
 
 export default class ItemService {
   itemRepository: ItemRepository;
-
+  localRepository: LocalRepository;
   constructor() {
     this.itemRepository = new ItemRepository();
+    this.localRepository = new LocalRepository('forecast-items');
   }
 
   getItems = async (): Promise<{[p: string]: ItemModel[]}> => {
@@ -21,15 +23,15 @@ export default class ItemService {
       model.pressure = item.main.pressure.toString();
       model.weather = item.weather[0].main;
       model.windSpeed = item.wind.speed.toString();
-      model.date = new Date(Date.parse(item.dt_txt));
+      model.date = new Date(Date.parse(item.dt_txt)).toLocaleTimeString();
 
-      const dateKey = model.date.toISOString().split('T')[0];
+      const dateKey = new Date(Date.parse(item.dt_txt)).toISOString().split('T')[0];
       if (!groupedData[dateKey]) {
         groupedData[dateKey] = [];
       }
       groupedData[dateKey].push(model);
     });
-
+    await this.localRepository.setItems(groupedData);
     return groupedData;
   };
 }

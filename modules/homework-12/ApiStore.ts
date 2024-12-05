@@ -1,5 +1,5 @@
 import ItemService from './ItemService.ts';
-import {makeAutoObservable} from 'mobx';
+import {action, makeAutoObservable, runInAction} from 'mobx';
 import ItemModel from './ItemModel.ts';
 import {Alert} from 'react-native';
 
@@ -14,19 +14,60 @@ export class ApiStore {
     this.itemService = new ItemService();
   }
 
-  getItems = async () => {
+  fetchFromLocalRepository = action(async () => {
+    try {
+      const result = await this.itemService.localRepository.getItems();
+      if (result != null) {
+        runInAction(() => {
+          this.items = result;
+        });
+        return true;
+      }
+      return false;
+    } catch (error: any) {
+      Alert.alert('Error', error.message);
+      return false;
+    }
+  });
+
+  fetchFromItemService = action(async () => {
     this.isLoading = true;
 
-    await this.itemService
-      .getItems()
-      .then(result => {
-        this.items = result;
-      })
-      .catch(error => {
-        Alert.alert('Error', error.message);
-      })
-      .finally(() => {
+    try {
+      const result = await this.itemService.getItems();
+      if (result != null) {
+        runInAction(() => {
+          this.items = result;
+        });
+        return true;
+      }
+      return false;
+    } catch (error: any) {
+      Alert.alert('Error', error.message);
+      return false;
+    } finally {
+      runInAction(() => {
         this.isLoading = false;
       });
-  };
+    }
+  });
+
+  getItems = action(async () => {
+    await this.fetchFromLocalRepository();
+    await this.fetchFromItemService();
+  });
+
+  refresh = action(async () => {
+    await this.getItems();
+  });
+
+  delete = action(async () => {
+    await this.itemService.localRepository.removeAll();
+    let items = await this.fetchFromLocalRepository();
+    if (!items) {
+      runInAction(() => {
+        this.items = {};
+      });
+    }
+  });
 }
