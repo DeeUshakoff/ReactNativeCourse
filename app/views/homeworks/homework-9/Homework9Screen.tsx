@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import {Icon} from 'react-native-elements';
 import {CommonStyles} from '@components/CommonStyles.tsx';
 import {Separator} from '@components/Separator.tsx';
@@ -18,6 +18,8 @@ import Button from '@components/Button.tsx';
 import {TaskModel} from '../../../../modules/homework-9/TaskModel.ts';
 import FlatList = Animated.FlatList;
 import {observer} from 'mobx-react';
+import {Modalize} from 'react-native-modalize';
+import {Portal} from 'react-native-portalize';
 
 export const Homework9Screen = observer(
   ({navigation}: NativeStackScreenProps<any>) => {
@@ -62,23 +64,99 @@ export const Homework9Screen = observer(
       ]);
     };
 
+    const modalizeRef = useRef<Modalize>(null);
+    const handleOnModalOpen = () => {
+      modalizeRef.current?.open();
+    };
+
     return (
       <SafeAreaView>
+        {taskStore.tasks.length > 0 && (<Portal>
+          <Modalize
+            ref={modalizeRef}
+            modalTopOffset={200}
+            modalStyle={{
+              borderTopLeftRadius: CommonStyles.borderRadius.borderRadius,
+              borderTopRightRadius: CommonStyles.borderRadius.borderRadius,
+            }}
+            flatListProps={{
+              data: taskStore.tasks.filter(item => item.completed),
+              keyExtractor: item => item.id,
+              showsVerticalScrollIndicator: false,
+              renderItem: ({item}) => (
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate('ToDo', {task: item});
+                  }}
+                  style={[
+                    styles.taskItem,
+                    item.completed
+                      ? styles.taskItemCompleted
+                      : styles.taskItemIncomplete,
+                  ]}>
+                  <Pressable
+                    style={styles.taskActionsContainer}>
+                    <Icon
+                      name={item.completed ? 'done' : 'radio-button-unchecked'}
+                      color={item.completed ? 'white' : 'gray'}
+                      size={20}
+                    />
+                  </Pressable>
+                  <View style={styles.taskContentContainer}>
+                    <Text
+                      numberOfLines={1}
+                      style={[
+                        styles.taskTitle,
+                        styles.taskContent,
+                        item.completed
+                          ? styles.taskTextCompleted
+                          : styles.taskTextIncomplete,
+                      ]}>
+                      {item.title}
+                    </Text>
+                    {item.content.length > 1 ? (
+                      <Text
+                        numberOfLines={1}
+                        style={[
+                          styles.taskContent,
+                          item.completed
+                            ? styles.taskTextCompleted
+                            : styles.taskTextIncomplete,
+                        ]}>
+                        {item.content}
+                      </Text>
+                    ) : null}
+                  </View>
+
+                  <Pressable
+                    onPress={() => {
+                      handleDeleteTask(item);
+                    }}
+                    style={styles.taskActionsContainer}>
+                    <Icon
+                      name={'delete-outline'}
+                      color={item.completed ? 'white' : 'gray'}
+                      size={20}
+                    />
+                  </Pressable>
+                </TouchableOpacity>
+              ),
+            }}
+            childrenStyle={{
+              padding: 20,
+            }}
+          />
+        </Portal>)}
+
         <View style={[CommonStyles.padding8]}>
-          <Text style={[styles.taskTitle, CommonStyles.padding8]}>
-            TODO-лист с возможностью
-          </Text>
-          <Text style={[CommonStyles.textAlignCenter]}>
-            добавить элементы в список,
-          </Text>
-          <Text style={[CommonStyles.textAlignCenter]}>
-            отметить элементы, как выполненные/невыполненные
-          </Text>
-          <Text style={[CommonStyles.textAlignCenter]}>удалить элемент</Text>
+          <Button onPress={() => {
+            handleOnModalOpen();
+          }} title={'Open finished'} />
           <Separator />
 
           <FlatList
             data={taskStore.tasks}
+            showsVerticalScrollIndicator={false}
             keyExtractor={item => item.id}
             renderItem={({item}) => (
               <TouchableOpacity
