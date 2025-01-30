@@ -13,6 +13,7 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {CommonStyles} from '@components/CommonStyles.tsx';
 import Clipboard from '@react-native-clipboard/clipboard';
 import {Separator} from '@components/Separator.tsx';
+import {observer} from 'mobx-react';
 
 const DATA = [
   {
@@ -31,6 +32,10 @@ const DATA = [
     title: 'Homework 12 - 15.10.2024',
     page: 'Homework12',
   },
+  {
+    title: 'Homework Themes',
+    page: 'HomeworkThemes',
+  },
 ];
 
 type ItemProps = {title: string; page: string; navigation: any};
@@ -46,7 +51,7 @@ const Item = (props: ItemProps) => (
   </View>
 );
 
-export const HomeworksScreen = ({navigation}: NativeStackScreenProps<any>) => {
+export const HomeworksScreen = observer(({navigation}: NativeStackScreenProps<any>) => {
   return (
     <SafeAreaView style={[styles.container, CommonStyles.padding8]}>
       <Text style={styles.title}>Домашние работы</Text>
@@ -71,7 +76,7 @@ export const HomeworksScreen = ({navigation}: NativeStackScreenProps<any>) => {
       </ScrollView>
     </SafeAreaView>
   );
-};
+});
 
 const styles = StyleSheet.create({
   link: {

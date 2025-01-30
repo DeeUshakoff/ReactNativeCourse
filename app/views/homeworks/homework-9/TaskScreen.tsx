@@ -1,13 +1,13 @@
 import {observer} from 'mobx-react-lite';
 import {Animated, StyleSheet, TextInput} from 'react-native';
-import {useRootStore} from '../../../../hooks/useRootStore.ts';
+import {useRootStore} from '../../../hooks/useRootStore.ts';
 import React, {useEffect, useState} from 'react';
 import ScrollView = Animated.ScrollView;
 import {CommonStyles} from '@components/CommonStyles.tsx';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import Button from '@components/Button.tsx';
 import {Icon} from 'react-native-elements';
-import {TaskFactory} from '../../../../modules/homework-9/TaskFactory.ts';
+import {TaskFactory} from '@modules/homework-9/TaskFactory.ts';
 
 export const TaskScreen = observer(
   ({navigation, route}: NativeStackScreenProps<any>) => {
