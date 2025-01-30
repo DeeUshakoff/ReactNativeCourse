@@ -1,7 +1,7 @@
 import {Animated, RefreshControl, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {useEffect} from 'react';
-import {useRootStore} from '../../../../hooks/useRootStore.ts';
+import {useRootStore} from '../../../hooks/useRootStore.ts';
 import {CommonStyles} from '@components/CommonStyles.tsx';
 import ItemModel from '@modules/homework-12/ItemModel.ts';
 import ScrollView = Animated.ScrollView;
@@ -34,6 +34,7 @@ export const Homework12Screen = observer(
     const onRefresh = React.useCallback(async () => {
       await apiStore.refresh();
     }, [apiStore]);
+
     const renderItem = (item: ItemModel) => (
       <View key={item.date} style={styles.forecastContainer}>
         <Text>{item.date}</Text>

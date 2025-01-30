@@ -7,6 +7,7 @@ import {TaskScreen} from '@homeworks/homework-9/TaskScreen.tsx';
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Homework12Screen} from '@homeworks/homework-12/Homework12Screen.tsx';
+import {HomeworkThemesScreen} from '@homeworks/homework-themes/HomeworkThemesScreen.tsx';
 
 const HomeworkStack = createNativeStackNavigator();
 
@@ -45,6 +46,11 @@ export const HomeworkStackScreen = () => {
         options={{title: 'Homework 12'}}
         name="Homework12"
         component={Homework12Screen}
+      />
+      <HomeworkStack.Screen
+        options={{title: 'Homework Themes'}}
+        name="HomeworkThemes"
+        component={HomeworkThemesScreen}
       />
     </HomeworkStack.Navigator>
   );

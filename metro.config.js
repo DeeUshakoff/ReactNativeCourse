@@ -12,6 +12,7 @@ const config = {
       '@components': './app/components',
       '@homeworks': './app/views/homeworks',
       '@modules': './app/modules',
+      '@hooks': './app/hooks',
     },
   },
 };

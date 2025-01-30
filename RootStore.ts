@@ -1,6 +1,6 @@
-import {TaskStore} from './modules/homework-9/TaskStore.ts';
+import {TaskStore} from '@modules/homework-9/TaskStore.ts';
 import React from 'react';
-import {ApiStore} from './modules/homework-12/ApiStore.ts';
+import {ApiStore} from '@modules/homework-12/ApiStore.ts';
 
 class RootStore {
   taskStore;
