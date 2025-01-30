@@ -36,6 +36,10 @@ const DATA = [
     title: 'Homework Themes',
     page: 'HomeworkThemes',
   },
+  {
+    title: 'Homework Fonts',
+    page: 'HomeworkFonts',
+  },
 ];
 
 type ItemProps = {title: string; page: string; navigation: any};

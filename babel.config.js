@@ -10,6 +10,7 @@ module.exports = {
           '@homeworks': './app/views/homeworks',
           '@modules': './app/modules',
           '@hooks': './app/hooks',
+          '@assets': './app/assets',
         },
       },
     ],

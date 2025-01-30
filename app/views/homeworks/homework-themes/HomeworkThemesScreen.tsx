@@ -1,5 +1,5 @@
 import {observer} from 'mobx-react';
-import {Animated, StyleSheet, Switch, Text, View} from 'react-native';
+import {Animated, StyleSheet, Switch, View} from 'react-native';
 import {ThemeContext} from '@modules/theme/ThemeProvider.tsx';
 import {ThemedBox} from '@components/homework-themes/ThemedBox.tsx';
 import {ThemedText} from '@components/homework-themes/ThemedText.tsx';
@@ -30,7 +30,7 @@ export const HomeworkThemesScreen = observer(() => {
       <ThemedBox />
       <ThemedText />
       <View style={{flexDirection: 'row'}}>
-        <ThemedText>Dark theme</ThemedText>
+        <ThemedText style={{fontFamily: 'Gilroy-Regular'}}>Dark theme</ThemedText>
         <Switch onValueChange={toggleSwitch} value={isEnabled} />
       </View>
     </ScrollView>
