@@ -39,9 +39,14 @@ const DATA = [
   {
     title: 'Homework Fonts',
     page: 'HomeworkFonts',
-  },{
+  },
+  {
     title: 'Homework Multilang',
     page: 'HomeworkMultilang',
+  },
+  {
+    title: 'Homework Realm',
+    page: 'HomeworkRealm',
   },
 ];
 

@@ -10,6 +10,7 @@ import {Homework12Screen} from '@homeworks/homework-12/Homework12Screen.tsx';
 import {HomeworkThemesScreen} from '@homeworks/homework-themes/HomeworkThemesScreen.tsx';
 import {HomeworkFontsScreen} from '@homeworks/homework-fonts/HomeworkFontsScren.tsx';
 import {HomeworkMultilangScreen} from '@homeworks/homework-multilang/HomeworkMultilangScreen.tsx';
+import {HomeworkRealmScreen} from '@homeworks/homework-realm/HomeworkRealmScreen.tsx';
 
 const HomeworkStack = createNativeStackNavigator();
 
@@ -58,10 +59,16 @@ export const HomeworkStackScreen = () => {
         options={{title: 'Homework Fonts'}}
         name="HomeworkFonts"
         component={HomeworkFontsScreen}
-      /><HomeworkStack.Screen
+      />
+      <HomeworkStack.Screen
         options={{title: 'Homework Fonts'}}
         name="HomeworkMultilang"
         component={HomeworkMultilangScreen}
+      />
+      <HomeworkStack.Screen
+        options={{title: 'Homework Realm'}}
+        name="HomeworkRealm"
+        component={HomeworkRealmScreen}
       />
     </HomeworkStack.Navigator>
   );
